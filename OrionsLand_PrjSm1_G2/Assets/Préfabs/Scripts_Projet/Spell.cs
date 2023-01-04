@@ -9,6 +9,7 @@ public class Spell : MonoBehaviour
     {
         Destroy(collision.gameObject);
         Destroy(gameObject);
+        
     }
 
 }
