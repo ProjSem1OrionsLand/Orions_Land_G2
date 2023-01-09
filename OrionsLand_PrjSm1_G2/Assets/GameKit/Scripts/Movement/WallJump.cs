@@ -35,18 +35,20 @@ public class WallJump : MonoBehaviour
 	[SerializeField] Jumper jumper = null;
 
 	//[Header("Collision Check")]
-	[Tooltip("Estimated distance between the pivot and the wall when wall jumping")]
-	[SerializeField] private float collisionCheckDistance = 0.6f;
+	[Tooltip("Size of the box cast to check if on wall (Usually a bit smaller than the character)")] 
+	[SerializeField] private Vector3 halfExtents = new Vector3(0.3f, 0.9f, 0.1f);
 	[Tooltip("Minimal height required to perform a wall jump. Helps preventing wall jumps while on the ground.")]
 	[SerializeField]
 	public float minimalHeightAllowedToWallJump = 1.5f;
 	[Tooltip("Offset from the pivot when detecting collision")]
 	[SerializeField]
-	public Vector3 collisionOffset = new Vector3(0, 0.5f, 0);
+	public Vector3 collisionOffset = new Vector3(0, 1f, 0.5f);
 
 	//[Header("FX")]
 	[Tooltip("Visual/Sound FX Instantiated on jump")]
 	public GameObject jumpFX = null;
+	[Tooltip("FX Spawn Anchor (Usually set as children of the player, in front of the GameObject")]
+	public Transform jumpFXSpawnPoint = null;
 	[Tooltip("Offset from the pivot when Instantiating FX")]
 	[SerializeField] private Vector3 fxOffset = Vector3.zero;
 	[Tooltip("Lifetime of the Instantiated FX. 0 = Do not destroy")]
@@ -63,8 +65,9 @@ public class WallJump : MonoBehaviour
 
 	private void Update ()
 	{
-		if (!GroundCheck(transform.forward, collisionCheckDistance)) return;
-		
+		//if (!transform.WallCheck(transform.position + collisionOffset, halfExtents, wallJumpLayerMask)) return;
+		if (!Physics.CheckBox(transform.position + transform.TransformDirection(collisionOffset), halfExtents, transform.rotation, wallJumpLayerMask, QueryTriggerInteraction.Ignore)) return;
+
 		WallSlide();
 		
 		if (GroundCheck(Vector3.down, minimalHeightAllowedToWallJump) == false)
@@ -77,7 +80,10 @@ public class WallJump : MonoBehaviour
 	{
 		Transform transform1 = transform;
 		Vector3 position = transform1.position;
-		Debug.DrawLine(position + collisionOffset, position + collisionOffset + transform1.forward * (collisionCheckDistance), Color.red);
+		Gizmos.color = Physics.CheckBox(position + transform.TransformDirection(collisionOffset), halfExtents, transform1.rotation, wallJumpLayerMask, QueryTriggerInteraction.Ignore)
+			? Color.green
+			: Color.red;
+		Gizmos.DrawWireCube(position + transform1.TransformDirection(collisionOffset), transform1.TransformDirection(halfExtents * 2f) );
 	}
 
 	private bool GroundCheck (Vector3 dir, float collisionCheckDist)
@@ -102,23 +108,17 @@ public class WallJump : MonoBehaviour
 		
 		if (rigid != null)
 		{
-			RaycastHit hit;
-			if (Physics.Raycast(transform.position + collisionOffset, transform.forward, out hit, collisionCheckDistance, wallJumpLayerMask, QueryTriggerInteraction.Ignore))
+			if(jumpFX != null)
 			{
-				if(jumpFX != null)
+				GameObject fx = Instantiate(jumpFX, jumpFXSpawnPoint.position, jumpFX.transform.rotation);
+
+				fx.GetComponent<ParticleSystem>().Play();
+
+				if(timeBeforeDestroyFX > 0) 
 				{
-					GameObject fx = Instantiate(jumpFX, hit.point, jumpFX.transform.rotation);
-					fx.transform.up = hit.normal;
-
-					fx.GetComponent<ParticleSystem>().Play();
-
-					if(timeBeforeDestroyFX > 0)
-					{
-						Destroy(fx, timeBeforeDestroyFX);
-					}
+					Destroy(fx, timeBeforeDestroyFX); 
 				}
 			}
-
 			WallJumpTrigger();
 		}
 		else
@@ -141,9 +141,7 @@ public class WallJump : MonoBehaviour
 
 		rigid.velocity = Vector3.zero;
 		
-		Transform transform1 = transform;
-		Vector3 force = transform1.right * wallJumpForce.x + transform1.up * wallJumpForce.y + transform1.forward * wallJumpForce.z;
-		rigid.AddForce(force);
+		rigid.AddForce(transform.TransformDirection(wallJumpForce), ForceMode.Impulse);
 
 		if (invertLookDirectionOnWallJump)
 		{

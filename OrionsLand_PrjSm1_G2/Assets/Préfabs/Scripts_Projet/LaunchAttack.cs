@@ -8,7 +8,8 @@ public class LaunchAttack : MonoBehaviour
     public GameObject spellPrefab1;
     public GameObject spellPrefab2;
     public GameObject spellPrefab3;
-
+    public Ressources playerRessource;
+    public float spellCost = 30f;
 
     bool spell1;
     bool spell2;
@@ -20,7 +21,7 @@ public class LaunchAttack : MonoBehaviour
     {
         SpellSelector();
         
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && playerRessource.EnergySpend(spellCost))
         {
             ShootSpell();
         }
@@ -38,15 +39,13 @@ public class LaunchAttack : MonoBehaviour
             rig.AddForce(spellSpawnpoint.forward * spellSpeed, ForceMode.Impulse);
         }
             
-
         if (spell2 == true)
         {
             GameObject spell = Instantiate(spellPrefab2, spellSpawnpoint.position, spellSpawnpoint.rotation);
             Rigidbody rig = spell.GetComponent<Rigidbody>();
 
             rig.AddForce(spellSpawnpoint.forward * spellSpeed, ForceMode.Impulse);
-        }
-           
+        }           
 
         if (spell3 == true)
         {
@@ -62,7 +61,6 @@ public class LaunchAttack : MonoBehaviour
         if (Input.GetButtonDown("Slot1"))
         {
             spell1 = true;
-
             spell2 = false;
             spell3 = false;
         }
@@ -70,7 +68,6 @@ public class LaunchAttack : MonoBehaviour
         if (Input.GetButtonDown("Slot2"))
         {
             spell2 = true;
-
             spell1 = false;
             spell3 = false;
         }
@@ -78,7 +75,6 @@ public class LaunchAttack : MonoBehaviour
         if (Input.GetButtonDown("Slot3"))
         {
             spell3 = true;
-
             spell1 = false;
             spell2 = false;
         }

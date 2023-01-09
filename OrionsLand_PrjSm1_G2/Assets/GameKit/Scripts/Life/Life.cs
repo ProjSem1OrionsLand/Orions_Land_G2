@@ -52,7 +52,11 @@ public class Life : MonoBehaviour
 	public delegate void OnDmgTaken();
 
 	public OnDmgTaken lifeChangeDelegate;
-	
+
+	public void DestroyObject()
+	{
+		Destroy(gameObject);
+	}
 	public void ModifyLife(int lifeMod)
 	{
 		if(lifeMod < 0)
@@ -86,7 +90,15 @@ public class Life : MonoBehaviour
 				sceneOnDestroy.LoadScene();
 			}
 
-			onDeath.Invoke();
+			if (onDeath.GetPersistentEventCount() == 0)
+			{
+				Debug.LogWarning("No Event on death set ! Default is destroy object", gameObject);
+				DestroyObject();
+			}
+			else
+			{
+				onDeath.Invoke();
+			}
 		}
 		else if(currentLife > maxLife)
 		{

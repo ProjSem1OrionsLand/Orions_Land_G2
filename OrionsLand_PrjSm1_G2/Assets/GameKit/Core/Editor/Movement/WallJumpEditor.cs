@@ -19,12 +19,13 @@ public class WallJumpEditor : Editor
 	private SerializedProperty resetJumpCountOnWallJump;
 	private SerializedProperty jumper;
 
-	private SerializedProperty collisionCheckDistance;
+	private SerializedProperty halfExtents;
 	private SerializedProperty collisionOffset;
 	private SerializedProperty minimalHeightAllowedToWallJump;
 
 	private SerializedProperty jumpFX;
-	private SerializedProperty FXOffset;
+	private SerializedProperty jumpFXSpawnPoint;
+
 	private SerializedProperty timeBeforeDestroyFX;
 
 	private SerializedProperty animator;
@@ -47,12 +48,12 @@ public class WallJumpEditor : Editor
 		resetJumpCountOnWallJump = serializedObject.FindProperty("resetJumpCountOnWallJump");
 		jumper = serializedObject.FindProperty("jumper");
 
-		collisionCheckDistance = serializedObject.FindProperty("collisionCheckDistance");
+		halfExtents = serializedObject.FindProperty("halfExtents");
 		collisionOffset = serializedObject.FindProperty("collisionOffset");
 		minimalHeightAllowedToWallJump = serializedObject.FindProperty("minimalHeightAllowedToWallJump");
 
 		jumpFX = serializedObject.FindProperty("jumpFX");
-		FXOffset = serializedObject.FindProperty("FXOffset");
+		jumpFXSpawnPoint = serializedObject.FindProperty("jumpFXSpawnPoint");
 		timeBeforeDestroyFX = serializedObject.FindProperty("timeBeforeDestroyFX");
 
 		animator = serializedObject.FindProperty("animator");
@@ -147,7 +148,7 @@ public class WallJumpEditor : Editor
 			case "Collision":
 				EditorGUILayout.BeginVertical(UIHelper.mainStyle);
 				{
-					EditorGUILayout.PropertyField(collisionCheckDistance);
+					EditorGUILayout.PropertyField(halfExtents);
 					EditorGUILayout.PropertyField(minimalHeightAllowedToWallJump);
 					EditorGUILayout.PropertyField(collisionOffset);
 				}
@@ -164,7 +165,7 @@ public class WallJumpEditor : Editor
 				{
 					EditorGUILayout.BeginVertical(UIHelper.subStyle1);
 					{
-						EditorGUILayout.PropertyField(FXOffset);
+						EditorGUILayout.PropertyField(jumpFXSpawnPoint);
 						EditorGUILayout.PropertyField(timeBeforeDestroyFX);
 					}
 					EditorGUILayout.EndVertical();

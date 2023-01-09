@@ -287,6 +287,6 @@ public class Jumper : MonoBehaviour
 		}
 
 		Gizmos.color = Helper.GroundCheck(checkPosition, collisionOffset, transform, collisionCheckRadius, jumpLayerMask) ? Color.blue : Color.red;
-		Gizmos.DrawWireSphere(checkPosition, collisionCheckRadius);
+		Gizmos.DrawWireSphere(checkPosition + collisionOffset, collisionCheckRadius);
 	}
 }

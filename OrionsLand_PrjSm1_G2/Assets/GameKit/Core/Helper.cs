@@ -139,6 +139,8 @@ public static class Helper
 		return moveDir;
 	}
 
+	#if UNITY_EDITOR
+	
 	/// <summary>
 	/// Gets all Input names contained in the Input Manager menu.
 	/// </summary>
@@ -188,7 +190,7 @@ public static class Helper
 
 		return scenes;
 	}
-
+#endif
 	/// <summary>
 	/// Returns a if target GameObject is on the ground (Round check shape)
 	/// </summary>
@@ -205,7 +207,7 @@ public static class Helper
 	}
 
 
-	/// <summary>
+	/*/// <summary>
 	/// Checks for wall collision. Used to prevent movement against walls
 	/// </summary>
 	/// <param name="t">Transform used for reference</param>
@@ -215,12 +217,8 @@ public static class Helper
 	/// <returns>Is the object facing a wall ?</returns>
 	public static bool WallCheck (this Transform t, Vector3 offset, Vector3 halfExtents, LayerMask wallAvoidanceLayers)
 	{
-		Vector3 localOffset = offset.WorldToLocalSpace(t);
-
-		Vector3 checkPos = t.position + localOffset;
-
-		return Physics.CheckBox(checkPos, halfExtents, t.rotation, wallAvoidanceLayers);
-	}
+		return Physics.CheckBox(t.position + t.TransformDirection(offset), halfExtents, t.rotation, wallAvoidanceLayers, QueryTriggerInteraction.Ignore);
+	}*/
 
 	/// <summary>
 	/// Converts an angle in degrees into a direction, depending on specified transform

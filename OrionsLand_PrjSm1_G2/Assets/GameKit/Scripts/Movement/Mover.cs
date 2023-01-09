@@ -278,7 +278,8 @@ public class Mover : MonoBehaviour
 			transform.forward = currentSpeed;
 		}
 
-		if ((!useWallAvoidance || transform.WallCheck(wallAvoidanceOffset, wallAvoidanceSize, wallAvoidanceLayers)) && useWallAvoidance) return;
+		//if ((!useWallAvoidance || transform.WallCheck(wallAvoidanceOffset, wallAvoidanceSize, wallAvoidanceLayers)) && useWallAvoidance) return;
+		if (useWallAvoidance && Physics.CheckBox(transform.position + transform.TransformDirection(wallAvoidanceOffset), wallAvoidanceSize, transform.rotation, wallAvoidanceLayers, QueryTriggerInteraction.Ignore)) return;
 		
 		if (animator != null)
 		{
@@ -361,7 +362,7 @@ public class Mover : MonoBehaviour
 
 			if (useWallAvoidance)
 			{
-				Gizmos.color = Helper.WallCheck(transform, wallAvoidanceOffset, wallAvoidanceSize, wallAvoidanceLayers)
+				Gizmos.color = Physics.CheckBox(transform.position + transform.TransformDirection(collisionOffset), wallAvoidanceSize, transform.rotation, wallAvoidanceLayers, QueryTriggerInteraction.Ignore)
 					? Color.red
 					: Color.green;
 
