@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8677896661007961278}
   - component: {fileID: 6884563748367726708}
   m_Layer: 0
-  m_Name: moulin 1
+  m_Name: moulin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -31,7 +31,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: -178.908}
 --- !u!33 &8677896661007961278
 MeshFilter:
@@ -61,15 +61,15 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 8748892135801146194, guid: e7b58e4d45dc2e746885328799845de4, type: 3}
-  - {fileID: 8368722655750445499, guid: e7b58e4d45dc2e746885328799845de4, type: 3}
-  - {fileID: 6034957751646507721, guid: e7b58e4d45dc2e746885328799845de4, type: 3}
-  - {fileID: -8255497921437555292, guid: e7b58e4d45dc2e746885328799845de4, type: 3}
-  - {fileID: -1976799459468813334, guid: e7b58e4d45dc2e746885328799845de4, type: 3}
-  - {fileID: 5561349426305759274, guid: e7b58e4d45dc2e746885328799845de4, type: 3}
-  - {fileID: -4597107667637640440, guid: e7b58e4d45dc2e746885328799845de4, type: 3}
-  - {fileID: -4612162990109294230, guid: e7b58e4d45dc2e746885328799845de4, type: 3}
-  - {fileID: 5775865398287329665, guid: e7b58e4d45dc2e746885328799845de4, type: 3}
+  - {fileID: 2100000, guid: 1e35883322b6c5e44a91fb1d03032715, type: 2}
+  - {fileID: 2100000, guid: 5c7dfcc2061e47b4db21fe8187b74107, type: 2}
+  - {fileID: 2100000, guid: 94ab1bdc308583b49b2d9948667c1b12, type: 2}
+  - {fileID: 2100000, guid: 94ab1bdc308583b49b2d9948667c1b12, type: 2}
+  - {fileID: 2100000, guid: 914cf1b9cb764c148a685fa846059736, type: 2}
+  - {fileID: 2100000, guid: 94ab1bdc308583b49b2d9948667c1b12, type: 2}
+  - {fileID: 2100000, guid: c91d8737ba0fcf648a0b3ef486c4f793, type: 2}
+  - {fileID: 2100000, guid: 5c7dfcc2061e47b4db21fe8187b74107, type: 2}
+  - {fileID: 2100000, guid: 94ab1bdc308583b49b2d9948667c1b12, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
