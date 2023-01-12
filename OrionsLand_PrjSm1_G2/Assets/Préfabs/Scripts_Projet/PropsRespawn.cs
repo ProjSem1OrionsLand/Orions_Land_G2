@@ -26,13 +26,13 @@ public class PropsRespawn : MonoBehaviour
 
 	void FixedUpdate()
 	{
-        if (spellValid.shoot == true)
+        if (spellValid.activation == true)
         {
 			currentRespawnTime -= 1*Time.deltaTime;
 			if(currentRespawnTime <= 0f)
             {
 				GameObject props = Instantiate(propsToSpawn, spawnPoint.position, spawnPoint.rotation);
-				spellValid.shoot = false;
+				spellValid.activation = false;
 				currentRespawnTime = respawnTime;
 			}
 		}

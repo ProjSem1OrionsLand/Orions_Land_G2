@@ -1,21 +1,41 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class LaunchAttack : MonoBehaviour
 {
-    public Transform spellSpawnpoint;
-    public GameObject spellPrefab1;
-    public GameObject spellPrefab2;
-    public GameObject spellPrefab3;
+    [Header("Liens Scripts")]
     public Ressources playerRessource;
+
+    [Header("Position GameObject")]
+    public Transform spellSpawnpoint;
+
+    [Space(10)]
+    [Header("Props et prefabs")]
+    public GameObject spellWater;
+    public GameObject spellWind;
+
+
+    [Space(10)]
+    [Header("Les FX")]
+    public GameObject zoneAttackFire;
+    public ParticleSystem Flame;
+
+
+    [Space(10)]
+    [Header("Les Variables")]
     public float spellCost = 30f;
+    public float spellSpeed = 10f;
+    public float timeFireSpell = 3f;
+    public float currentTimeFireSpell;
 
     bool spell1;
     bool spell2;
     bool spell3;
-    public float spellSpeed = 10f;
 
+    private void Start()
+    {
+        zoneAttackFire.SetActive(false);
+        currentTimeFireSpell = timeFireSpell;
+    }
 
     void Update()
     {
@@ -24,34 +44,48 @@ public class LaunchAttack : MonoBehaviour
         if (Input.GetMouseButtonDown(0) && playerRessource.EnergySpend(spellCost))
         {
             ShootSpell();
-        }
+            if (spell1 == true)
+            {
+                zoneAttackFire.SetActive(true);
 
+                if (currentTimeFireSpell <= 0f)
+                {
+                    zoneAttackFire.SetActive(false);
+                    currentTimeFireSpell = timeFireSpell;
+                }
+                else
+                {
+                    currentTimeFireSpell -= 1 * Time.deltaTime;
+
+                }
+            }
+        }
     }
 
+    private void FlameTImer()
+    {
+
+    }
 
     private void ShootSpell()
     {
         if (spell1 == true)
         {
-            GameObject spell = Instantiate(spellPrefab1, spellSpawnpoint.position, spellSpawnpoint.rotation);
-            Rigidbody rig = spell.GetComponent<Rigidbody>();
+            Flame.Play(true);
 
-            rig.AddForce(spellSpawnpoint.forward * spellSpeed, ForceMode.Impulse);
         }
-            
+
         if (spell2 == true)
         {
-            GameObject spell = Instantiate(spellPrefab2, spellSpawnpoint.position, spellSpawnpoint.rotation);
+            GameObject spell = Instantiate(spellWater, spellSpawnpoint.position, spellSpawnpoint.rotation);
             Rigidbody rig = spell.GetComponent<Rigidbody>();
-
             rig.AddForce(spellSpawnpoint.forward * spellSpeed, ForceMode.Impulse);
         }           
 
         if (spell3 == true)
         {
-            GameObject spell = Instantiate(spellPrefab3, spellSpawnpoint.position, spellSpawnpoint.rotation);
+            GameObject spell = Instantiate(spellWind, spellSpawnpoint.position, spellSpawnpoint.rotation);
             Rigidbody rig = spell.GetComponent<Rigidbody>();
-
             rig.AddForce(spellSpawnpoint.forward * spellSpeed, ForceMode.Impulse);
         }
     }
@@ -63,6 +97,7 @@ public class LaunchAttack : MonoBehaviour
             spell1 = true;
             spell2 = false;
             spell3 = false;
+
         }
 
         if (Input.GetButtonDown("Slot2"))
