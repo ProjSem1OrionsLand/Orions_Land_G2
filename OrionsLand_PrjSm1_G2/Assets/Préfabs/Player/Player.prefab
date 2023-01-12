@@ -274,9 +274,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerRessource: {fileID: 1353089295258651693}
   spellSpawnpoint: {fileID: 8463166177779995380}
-  spellWater: {fileID: 8087769465913325522, guid: 951f8ee3b122eef43bfa08a16eb5cefd,
+  spellWater: {fileID: 4699044212482871136, guid: ed584c5f5edf3824e83b5b78205779cf,
     type: 3}
-  spellWind: {fileID: 712587377608576042, guid: 72b4690d2e5ddc041992b53512d34115,
+  spellWind: {fileID: 4193345108213993083, guid: 26ebfddcca36746469bfc191709cc8a7,
     type: 3}
   zoneAttackFire: {fileID: 5712170067023920413}
   Flame: {fileID: 7906041834053180790}
