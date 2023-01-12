@@ -14,8 +14,8 @@ GameObject:
   - component: {fileID: 8637293162205111428}
   - component: {fileID: 6183678398686326079}
   - component: {fileID: 1649652810293622229}
-  - component: {fileID: 5090410922065618014}
-  - component: {fileID: 5870086548903843031}
+  - component: {fileID: 8007484653644701140}
+  - component: {fileID: 5631565973844718572}
   m_Layer: 0
   m_Name: WindSpell
   m_TagString: SpellVent
@@ -34,8 +34,7 @@ Transform:
   m_LocalPosition: {x: 2, y: 0, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 7322041643409391456}
+  m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -130,7 +129,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 504ee9f49a4b31d49904c08a233959eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!73398921 &5090410922065618014
+  lifetimeSpell: 2
+--- !u!73398921 &8007484653644701140
 VFXRenderer:
   serializedVersion: 1
   m_ObjectHideFlags: 0
@@ -170,7 +170,7 @@ VFXRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!2083052967 &5870086548903843031
+--- !u!2083052967 &5631565973844718572
 VisualEffect:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -178,7 +178,7 @@ VisualEffect:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8943920907293078601}
   m_Enabled: 1
-  m_Asset: {fileID: 8926484042661614526, guid: c8876656b56d362419425ffd147352f9, type: 3}
+  m_Asset: {fileID: 8926484042661614526, guid: 6092f9c3644942544b00f3e5f3bec599, type: 3}
   m_InitialEventName: OnPlay
   m_InitialEventNameOverriden: 0
   m_StartSeed: 0
@@ -186,31 +186,13 @@ VisualEffect:
   m_ResourceVersion: 1
   m_PropertySheet:
     m_Float:
-      m_Array:
-      - m_Value: 35.82
-        m_Name: TRAIL SPAWNER RATE
-        m_Overridden: 1
-      - m_Value: 0.27
-        m_Name: Size
-        m_Overridden: 1
-      - m_Value: 0.66
-        m_Name: TrailLifetime
-        m_Overridden: 1
-      - m_Value: 50000
-        m_Name: SpawnRate
-        m_Overridden: 1
+      m_Array: []
     m_Vector2f:
       m_Array: []
     m_Vector3f:
       m_Array: []
     m_Vector4f:
-      m_Array:
-      - m_Value: {x: 0.14100902, y: 5.386546, z: 0.5189117, w: 0}
-        m_Name: Color
-        m_Overridden: 1
-      - m_Value: {x: 4.1884813, y: 3.6997306, z: 0.18439816, w: 0}
-        m_Name: COLOR TRAIL
-        m_Overridden: 1
+      m_Array: []
     m_Uint:
       m_Array: []
     m_Int:
@@ -225,90 +207,3 @@ VisualEffect:
       m_Array: []
     m_Bool:
       m_Array: []
---- !u!1001 &5350296277379134396
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 2
-    m_TransformParent: {fileID: 3117778264126143233}
-    m_Modifications:
-    - target: {fileID: 3448926129716432089, guid: 23b76a3f867602c4b8a9570bb584bb4d,
-        type: 3}
-      propertyPath: m_Name
-      value: orb 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 3448926129716432089, guid: 23b76a3f867602c4b8a9570bb584bb4d,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3448926129716432090, guid: 23b76a3f867602c4b8a9570bb584bb4d,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3448926129716432092, guid: 23b76a3f867602c4b8a9570bb584bb4d,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3448926129716432092, guid: 23b76a3f867602c4b8a9570bb584bb4d,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3448926129716432092, guid: 23b76a3f867602c4b8a9570bb584bb4d,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3448926129716432092, guid: 23b76a3f867602c4b8a9570bb584bb4d,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3448926129716432092, guid: 23b76a3f867602c4b8a9570bb584bb4d,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.8366366
-      objectReference: {fileID: 0}
-    - target: {fileID: 3448926129716432092, guid: 23b76a3f867602c4b8a9570bb584bb4d,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3448926129716432092, guid: 23b76a3f867602c4b8a9570bb584bb4d,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3448926129716432092, guid: 23b76a3f867602c4b8a9570bb584bb4d,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0.5477583
-      objectReference: {fileID: 0}
-    - target: {fileID: 3448926129716432092, guid: 23b76a3f867602c4b8a9570bb584bb4d,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3448926129716432092, guid: 23b76a3f867602c4b8a9570bb584bb4d,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3448926129716432092, guid: 23b76a3f867602c4b8a9570bb584bb4d,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: -66.427
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_AddedGameObjects: []
-  m_SourcePrefab: {fileID: 100100000, guid: 23b76a3f867602c4b8a9570bb584bb4d, type: 3}
---- !u!4 &7322041643409391456 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 3448926129716432092, guid: 23b76a3f867602c4b8a9570bb584bb4d,
-    type: 3}
-  m_PrefabInstance: {fileID: 5350296277379134396}
-  m_PrefabAsset: {fileID: 0}

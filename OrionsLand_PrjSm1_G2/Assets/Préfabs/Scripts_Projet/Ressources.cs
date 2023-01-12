@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Ressources : MonoBehaviour
 {
+
     public float maxMana = 100f;
     public float currentMana = 100f;
     public float manaRegenPerSec = 15f;
@@ -24,11 +25,7 @@ public class Ressources : MonoBehaviour
 
     public bool EnergySpend(float spellCost)
     {
-        //on vx dépenser de l'énergie
-        //Check si on en a assez
-        //Si on en a assez, on return "true" et on dépense
-        //Si non, on retourne false
-
+        
         if (spellCost <= currentMana)
         {
             currentMana -= spellCost;

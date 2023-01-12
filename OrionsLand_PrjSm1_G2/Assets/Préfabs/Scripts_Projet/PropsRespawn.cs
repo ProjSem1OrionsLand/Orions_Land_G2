@@ -26,7 +26,7 @@ public class PropsRespawn : MonoBehaviour
 
 	void FixedUpdate()
 	{
-        if (spellValid.activation == true)
+/*        if (spellValid.activation == true)
         {
 			currentRespawnTime -= 1*Time.deltaTime;
 			if(currentRespawnTime <= 0f)
@@ -36,6 +36,7 @@ public class PropsRespawn : MonoBehaviour
 				currentRespawnTime = respawnTime;
 			}
 		}
+*/
 
 	}
 }

@@ -4,10 +4,7 @@ using UnityEngine;
 
 public class SpellDetection : MonoBehaviour
 {
-    [Header("Scripts Externes")]
-    public Ressources Ressources;
 
-    [Space(10)]
     [Header("Position GameObject")]
     public Transform propPosition;
     public Transform respawnPosition;
@@ -28,12 +25,10 @@ public class SpellDetection : MonoBehaviour
     [Space(10)]
     [Header("Les Timeurs")]
     public float lifetimeFire = 5f;
-    public float lifetimeWater = 30f;
+    public float lifetimeWater = 5f;
     public float lifetimeWind = 0.5f;
-    public float respawnProps = 15f;
 
     [Space(10)]
-    public float currentRespawnProps;
     public float currentFireLifetime;
     public float currentWaterLifetime;
     public float currentWindLifetime;
@@ -50,7 +45,6 @@ public class SpellDetection : MonoBehaviour
     {
         timerRespawn = false;
         activation = true;
-        currentRespawnProps = respawnProps;
         currentFireLifetime = lifetimeFire;
         currentWaterLifetime = lifetimeWater;
         currentWindLifetime = lifetimeWind;
@@ -70,28 +64,27 @@ public class SpellDetection : MonoBehaviour
         if (fireShoot == true)
         {
             currentFireLifetime -= 1 * Time.deltaTime;
+        }        
+        if (waterShoot == true)
+        {
+            currentWaterLifetime -= 1 * Time.deltaTime;
+        }        
+        if (windShoot == true)
+        {
+            currentWindLifetime -= 1 * Time.deltaTime;
         }
 
         if (currentFireLifetime < 0 || currentWaterLifetime < 0 || currentWindLifetime < 0 )
         {
             fireShoot = false;
+            waterShoot = false;
+            windShoot = false;
+
             activation = false;
             timerRespawn = true;
             currentFireLifetime = lifetimeFire;
             currentWaterLifetime = lifetimeWater;
             currentWindLifetime = lifetimeWind;
-        }
-
-        if(timerRespawn == true)
-        {
-            currentRespawnProps -= 1 * Time.deltaTime;
-        }
-
-        if (currentRespawnProps < 0)
-        {
-            timerRespawn = false;
-            activation = true;
-            currentRespawnProps = respawnProps;
         }
     }
 
@@ -106,14 +99,12 @@ public class SpellDetection : MonoBehaviour
         else if (collision.gameObject.tag == "SpellEau")
         {
             waterParticle.Play(true);
-            Destroy(gameObject, lifetimeWater);
             waterShoot = true;
         }
 
         else if (collision.gameObject.tag == "SpellVent")
         {
             windParticle.Play(true);
-            Destroy(gameObject, lifetimeWind);
             windShoot = true;
 
         }

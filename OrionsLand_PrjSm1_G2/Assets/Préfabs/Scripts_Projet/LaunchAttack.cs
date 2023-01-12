@@ -81,7 +81,7 @@ public class LaunchAttack : MonoBehaviour
             GameObject spell = Instantiate(spellWater, spellSpawnpoint.position, spellSpawnpoint.rotation);
             Rigidbody rig = spell.GetComponent<Rigidbody>();
             rig.AddForce(spellSpawnpoint.forward * spellSpeed, ForceMode.Impulse);
-        }           
+        }
 
         if (spell3 == true)
         {
