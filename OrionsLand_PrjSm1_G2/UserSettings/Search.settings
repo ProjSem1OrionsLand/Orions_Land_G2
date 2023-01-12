@@ -1,6 +1,6 @@
 trackSelection = true
 fetchPreview = true
-defaultFlags = 256
+defaultFlags = 264
 keepOpen = false
 queryFolder = "Assets"
 onBoardingDoNotAskAgain = true
@@ -10,7 +10,7 @@ scopes = {
 	"last_search.BDE7F5D3" = ""
 	"OpenInspectorPreview.BDE7F5D3" = "0"
 	"currentGroup.BDE7F5D3" = "all"
-	"last_search.E4EB812F" = ""
+	"last_search.E4EB812F" = "DEFAU"
 	"OpenInspectorPreview.E4EB812F" = "0"
 	"currentGroup.E4EB812F" = "all"
 }
