@@ -156,8 +156,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5712170067023920413}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: 6.5386734}
-  m_LocalScale: {x: 2.2033, y: 1, z: 10.353781}
+  m_LocalPosition: {x: 0, y: 1, z: 5.67}
+  m_LocalScale: {x: 2.2033, y: 1, z: 8.936115}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1955844392712461684}
@@ -220,6 +220,7 @@ Transform:
   - {fileID: 8463166177779995380}
   - {fileID: 2013647450220563175}
   - {fileID: 5313222338725471219}
+  - {fileID: 7906041832267929558}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -253,7 +254,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b033334ab38ffdb49bb4a195756c079c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Player: {fileID: 0}
+  Player: {fileID: 1040572897436762642}
   cam: {fileID: 0}
   hInputName: Horizontal
   vInputName: Vertical
@@ -273,10 +274,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerRessource: {fileID: 1353089295258651693}
   spellSpawnpoint: {fileID: 8463166177779995380}
-  spellWater: {fileID: 0}
-  spellWind: {fileID: 0}
+  spellWater: {fileID: 8087769465913325522, guid: 951f8ee3b122eef43bfa08a16eb5cefd,
+    type: 3}
+  spellWind: {fileID: 712587377608576042, guid: 72b4690d2e5ddc041992b53512d34115,
+    type: 3}
   zoneAttackFire: {fileID: 5712170067023920413}
-  Flame: {fileID: 0}
+  Flame: {fileID: 7906041834053180790}
   spellCost: 30
   spellSpeed: 0
   timeFireSpell: 3
@@ -424,3 +427,86 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!1001 &4025962924336037030
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 2
+    m_TransformParent: {fileID: 1955844392712461684}
+    m_Modifications:
+    - target: {fileID: 6514721681968491376, guid: f0bebb38bf9ef1a4e916fc8efd7a887b,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6514721681968491376, guid: f0bebb38bf9ef1a4e916fc8efd7a887b,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6514721681968491376, guid: f0bebb38bf9ef1a4e916fc8efd7a887b,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6514721681968491376, guid: f0bebb38bf9ef1a4e916fc8efd7a887b,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6514721681968491376, guid: f0bebb38bf9ef1a4e916fc8efd7a887b,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6514721681968491376, guid: f0bebb38bf9ef1a4e916fc8efd7a887b,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6514721681968491376, guid: f0bebb38bf9ef1a4e916fc8efd7a887b,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6514721681968491376, guid: f0bebb38bf9ef1a4e916fc8efd7a887b,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6514721681968491376, guid: f0bebb38bf9ef1a4e916fc8efd7a887b,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6514721681968491376, guid: f0bebb38bf9ef1a4e916fc8efd7a887b,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6514721681968491376, guid: f0bebb38bf9ef1a4e916fc8efd7a887b,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6514721681968491377, guid: f0bebb38bf9ef1a4e916fc8efd7a887b,
+        type: 3}
+      propertyPath: m_Name
+      value: Flamethrower
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_AddedGameObjects: []
+  m_SourcePrefab: {fileID: 100100000, guid: f0bebb38bf9ef1a4e916fc8efd7a887b, type: 3}
+--- !u!4 &7906041832267929558 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6514721681968491376, guid: f0bebb38bf9ef1a4e916fc8efd7a887b,
+    type: 3}
+  m_PrefabInstance: {fileID: 4025962924336037030}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &7906041834053180790 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 6514721680184517072, guid: f0bebb38bf9ef1a4e916fc8efd7a887b,
+    type: 3}
+  m_PrefabInstance: {fileID: 4025962924336037030}
+  m_PrefabAsset: {fileID: 0}

@@ -26,6 +26,8 @@ public class LaunchAttack : MonoBehaviour
     public float spellSpeed = 10f;
     public float timeFireSpell = 3f;
     public float currentTimeFireSpell;
+    private bool fireSpell = false;
+
 
     bool spell1;
     bool spell2;
@@ -33,6 +35,7 @@ public class LaunchAttack : MonoBehaviour
 
     private void Start()
     {
+        fireSpell = false;
         zoneAttackFire.SetActive(false);
         currentTimeFireSpell = timeFireSpell;
     }
@@ -47,25 +50,23 @@ public class LaunchAttack : MonoBehaviour
             if (spell1 == true)
             {
                 zoneAttackFire.SetActive(true);
-
-                if (currentTimeFireSpell <= 0f)
-                {
-                    zoneAttackFire.SetActive(false);
-                    currentTimeFireSpell = timeFireSpell;
-                }
-                else
-                {
-                    currentTimeFireSpell -= 1 * Time.deltaTime;
-
-                }
+                fireSpell = true;
             }
+        }
+
+        if (fireSpell == true)
+        {
+            currentTimeFireSpell -= 1 * Time.deltaTime;
+        }
+
+        if (currentTimeFireSpell < 0f)
+        {
+            fireSpell = false;
+            zoneAttackFire.SetActive(false);
+            currentTimeFireSpell = timeFireSpell;
         }
     }
 
-    private void FlameTImer()
-    {
-
-    }
 
     private void ShootSpell()
     {
