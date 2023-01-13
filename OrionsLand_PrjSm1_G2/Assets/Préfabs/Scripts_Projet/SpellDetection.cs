@@ -1,24 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.VFX;
 
 public class SpellDetection : MonoBehaviour
 {
+    [Header("Props a désactiver")]
 
-    [Header("Position GameObject")]
-    public Transform propPosition;
-    public Transform respawnPosition;
-
-    [Space(10)]
-    [Header("Particle")]
-    public GameObject particleFire;
-    public GameObject particleWater;
-    public GameObject particleWind;
     public GameObject props;
 
     [Space(10)]
     [Header("Les FX")]
-    public ParticleSystem fireParticle;
+    public VisualEffect VFxFire;
     public ParticleSystem waterParticle;
     public ParticleSystem windParticle;
 
@@ -82,6 +75,7 @@ public class SpellDetection : MonoBehaviour
 
             activation = false;
             timerRespawn = true;
+
             currentFireLifetime = lifetimeFire;
             currentWaterLifetime = lifetimeWater;
             currentWindLifetime = lifetimeWind;
@@ -92,7 +86,7 @@ public class SpellDetection : MonoBehaviour
     {
         if (collision.gameObject.tag == "SpellFeu")
         {
-            fireParticle.Play(true);
+            VFxFire.Play();
             fireShoot = true;
         }
 
